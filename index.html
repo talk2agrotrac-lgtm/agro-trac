@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgroTrac Equipment Rentals — Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --loam-900:#1c1a16;
+  --loam-800:#252219;
+  --loam-700:#332e22;
+  --steel-500:#6b675c;
+  --steel-300:#a8a396;
+  --paper-100:#f0ead9;
+  --safety-500:#e8b23d;
+  --safety-600:#d69a1f;
+  --rust-500:#c1502e;
+  --line:rgba(240,234,217,0.14);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--loam-900);
+  color:var(--paper-100);
+  font-family:'IBM Plex Sans',sans-serif;
+  line-height:1.6;
+}
+h1,h2,h3,.display{
+  font-family:'Oswald',sans-serif;
+  text-transform:uppercase;
+  letter-spacing:0.02em;
+  margin:0;
+}
+.mono{font-family:'IBM Plex Mono',monospace;}
+a{color:inherit;}
+img{max-width:100%;display:block;}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px;}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+}
+
+/* NAV */
+header.site{
+  position:sticky; top:0; z-index:50;
+  background:rgba(28,26,22,0.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 28px; max-width:1160px; margin:0 auto;
+}
+.brand{
+  display:flex; align-items:center; gap:10px;
+  font-family:'Oswald',sans-serif; font-weight:700; font-size:1.25rem;
+  text-transform:uppercase; letter-spacing:0.04em;
+  text-decoration:none;
+}
+.brand .mark{
+  width:34px;height:34px;border:2px solid var(--safety-500);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--safety-500); font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:0.85rem;
+}
+nav.links{display:flex; gap:32px; font-size:0.92rem; text-transform:uppercase; letter-spacing:0.05em;}
+nav.links a{text-decoration:none; color:var(--steel-300); transition:color 0.2s; padding-bottom:4px; border-bottom:2px solid transparent;}
+nav.links a:hover, nav.links a:focus-visible{color:var(--safety-500);}
+nav.links a.active{color:var(--safety-500); border-bottom-color:var(--safety-500);}
+.btn{
+  display:inline-block; padding:12px 26px;
+  background:var(--safety-500); color:var(--loam-900);
+  font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase;
+  letter-spacing:0.04em; font-size:0.88rem;
+  border:none; cursor:pointer; text-decoration:none;
+  transition:background 0.2s, transform 0.15s;
+}
+.btn:hover, .btn:focus-visible{background:var(--safety-600);}
+.btn:active{transform:translateY(1px);}
+.btn.ghost{
+  background:transparent; color:var(--paper-100); border:1px solid var(--steel-500);
+}
+.btn.ghost:hover, .btn.ghost:focus-visible{border-color:var(--safety-500); color:var(--safety-500);}
+:focus-visible{outline:2px solid var(--safety-500); outline-offset:3px;}
+
+/* HERO (Home) */
+.hero{
+  position:relative;
+  padding:110px 0 90px;
+  border-bottom:1px solid var(--line);
+  background:
+    repeating-linear-gradient(135deg, transparent 0 48px, rgba(240,234,217,0.025) 48px 49px),
+    var(--loam-900);
+  overflow:hidden;
+}
+.hero .wrap{position:relative; z-index:2;}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace; color:var(--safety-500);
+  font-size:0.85rem; letter-spacing:0.12em; text-transform:uppercase;
+  margin-bottom:18px;
+}
+.hero h1{
+  font-size:clamp(2.6rem, 6vw, 4.6rem);
+  line-height:0.98;
+  max-width:14ch;
+}
+.hero h1 span{color:var(--safety-500);}
+.hero p.lede{
+  max-width:46ch; color:var(--steel-300); font-size:1.08rem; margin:26px 0 36px;
+}
+.hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
+.plate-strip{
+  display:flex; gap:0; margin-top:64px; border-top:1px solid var(--line);
+}
+.plate{
+  flex:1; padding:20px 22px 0; border-right:1px solid var(--line);
+}
+.plate:last-child{border-right:none;}
+.plate .num{font-family:'Oswald',sans-serif; font-size:2.1rem; color:var(--safety-500);}
+.plate .label{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:var(--steel-300); text-transform:uppercase; letter-spacing:0.06em;}
+
+/* SMALL PAGE HEADER (Fleet / Contact) */
+.page-header{
+  padding:70px 0 50px; border-bottom:1px solid var(--line);
+  background:repeating-linear-gradient(135deg, transparent 0 48px, rgba(240,234,217,0.025) 48px 49px), var(--loam-900);
+}
+.page-header h1{font-size:clamp(2.2rem,4.5vw,3.2rem); max-width:20ch;}
+.page-header p.lede{max-width:56ch; color:var(--steel-300); font-size:1.04rem; margin-top:18px;}
+
+/* SECTION HEADS */
+.section{padding:90px 0; border-bottom:1px solid var(--line);}
+.section:last-of-type{border-bottom:none;}
+.section-head{margin-bottom:52px; max-width:60ch;}
+.section-head .eyebrow{margin-bottom:12px;}
+.section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);}
+.section-head p{color:var(--steel-300); margin-top:14px; font-size:1.02rem;}
+
+/* EQUIPMENT — spec plate cards */
+.fleet-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+}
+.fleet-card{
+  background:var(--loam-800);
+  border:1px solid var(--line);
+  display:flex; flex-direction:column;
+}
+.fleet-photo{
+  aspect-ratio:4/3; background:var(--loam-700);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--steel-500); font-family:'IBM Plex Mono',monospace; font-size:0.8rem;
+  border-bottom:1px solid var(--line);
+  position:relative; overflow:hidden;
+}
+.fleet-photo img{width:100%;height:100%;object-fit:cover;}
+.fleet-body{padding:22px 22px 24px; display:flex; flex-direction:column; flex:1;}
+.fleet-body h3{font-size:1.25rem; margin-bottom:6px;}
+.fleet-body .desc{color:var(--steel-300); font-size:0.9rem; margin-bottom:14px;}
+.spec-plate{
+  border:1px solid var(--steel-500);
+  padding:12px 14px; margin-bottom:16px;
+  font-family:'IBM Plex Mono',monospace; font-size:0.82rem;
+  display:grid; grid-template-columns:1fr 1fr; row-gap:6px;
+}
+.spec-plate .k{color:var(--steel-300); text-transform:uppercase; letter-spacing:0.04em; font-size:0.72rem;}
+.spec-plate .v{color:var(--paper-100); text-align:right;}
+.fleet-body .price{
+  display:flex; align-items:baseline; justify-content:space-between; margin-top:auto;
+}
+.fleet-body .price .amt{font-family:'Oswald',sans-serif; font-size:1.4rem; color:var(--safety-500);}
+.fleet-body .price .per{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:var(--steel-300);}
+.fleet-body .btn{margin-top:14px; text-align:center;}
+
+/* WHY */
+.why-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--line); border-left:1px solid var(--line);}
+.why-item{padding:34px 30px; border-right:1px solid var(--line); border-bottom:1px solid var(--line);}
+.why-item .tag{font-family:'IBM Plex Mono',monospace; color:var(--rust-500); font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:14px; display:block;}
+.why-item h3{font-size:1.15rem; margin-bottom:10px;}
+.why-item p{color:var(--steel-300); font-size:0.96rem; margin:0;}
+
+/* STATS BAND */
+.stats{
+  background:var(--safety-500); color:var(--loam-900);
+  padding:48px 0; border-bottom:1px solid var(--line);
+}
+.stats .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;}
+.stat{flex:1; min-width:180px;}
+.stat .n{font-family:'Oswald',sans-serif; font-size:2.6rem; line-height:1;}
+.stat .l{font-family:'IBM Plex Mono',monospace; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; margin-top:8px;}
+
+/* CONTACT */
+.contact-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:60px;}
+.contact-info h3{font-size:1.1rem; margin-bottom:10px; color:var(--safety-500);}
+.contact-info .row{padding:18px 0; border-top:1px solid var(--line);}
+.contact-info .row:last-child{border-bottom:1px solid var(--line);}
+.contact-info .k{font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:var(--steel-300); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;}
+.contact-info .note{margin-top:26px; padding-top:26px; border-top:1px solid var(--line); color:var(--steel-300); font-size:0.94rem;}
+form{display:flex; flex-direction:column; gap:18px;}
+.field{display:flex; flex-direction:column; gap:8px;}
+.field label{font-family:'IBM Plex Mono',monospace; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--steel-300);}
+.field input, .field select, .field textarea{
+  background:var(--loam-800); border:1px solid var(--steel-500); color:var(--paper-100);
+  padding:12px 14px; font-family:'IBM Plex Sans',sans-serif; font-size:0.96rem;
+}
+.field input:focus, .field select:focus, .field textarea:focus{border-color:var(--safety-500); outline:none;}
+.field textarea{resize:vertical; min-height:100px;}
+.row2{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+.confirm-box{
+  display:none; border:1px solid var(--safety-500); padding:18px 20px; margin-top:6px;
+  font-family:'IBM Plex Mono',monospace; font-size:0.88rem; color:var(--safety-500);
+}
+.confirm-box.show{display:block;}
+
+/* FAQ (Contact) */
+.faq{margin-top:0;}
+.faq-item{border-bottom:1px solid var(--line); padding:22px 0;}
+.faq-item h3{font-size:1.02rem; margin-bottom:8px; color:var(--paper-100);}
+.faq-item p{color:var(--steel-300); font-size:0.94rem; margin:0;}
+
+footer{padding:36px 0;}
+footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;}
+footer .mono{color:var(--steel-500); font-size:0.8rem;}
+footer nav{display:flex; gap:22px; font-size:0.85rem;}
+footer nav a{text-decoration:none; color:var(--steel-300);}
+footer nav a:hover{color:var(--safety-500);}
+
+@media (max-width:900px){
+  .fleet-grid{grid-template-columns:1fr;}
+  .why-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr; gap:40px;}
+  nav.links{display:none;}
+  .plate-strip{flex-wrap:wrap;}
+  .plate{flex:1 1 50%; border-bottom:1px solid var(--line); padding-bottom:16px;}
+}
+
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a href="index.html" class="brand"><span class="mark">AT</span> AgroTrac</a>
+    <nav class="links">
+      <a href="index.html" class="active">Home</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="btn">Request a Rental</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">A Youth-Led Startup — Serving Northern Nigeria</div>
+    <h1>Machinery ready for your <span>planting</span> and harvest windows</h1>
+    <p class="lede">Founded by young people in Sokoto, we supply tractors and farm equipment to local farmers at affordable rates. Beyond Sokoto, we run outlets across the northern states, closing the gap in access to farm inputs and helping smallholder farmers work at scale.</p>
+    <div class="hero-actions">
+      <a href="fleet.html" class="btn">Browse the Fleet</a>
+      <a href="contact.html" class="btn ghost">Talk to Dispatch</a>
+    </div>
+    <div class="plate-strip">
+      <div class="plate"><div class="num">120+</div><div class="label">Units in Rotation</div></div>
+      <div class="plate"><div class="num">24hr</div><div class="label">Callout Response</div></div>
+      <div class="plate"><div class="num">Multiple</div><div class="label">Outlets, Northern Nigeria</div></div>
+      <div class="plate"><div class="num">98%</div><div class="label">Uptime Guarantee</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="mission">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow mono">Our Mission</div>
+      <h2>Closing the gap in access to farm inputs</h2>
+      <p>AgroTrac is a startup founded and run by young people from Sokoto. We started it because local farmers, especially smallholders, were being locked out of the machinery that lets a farm grow past manual, subsistence-scale work. Renting instead of owning puts a tractor, a harvester, or an irrigation set within reach of a farmer who couldn't otherwise afford one, so they can plant, harvest, and grow at scale. We've since grown outlets across the northern states, and previously partnered with Trotro Tractors in Jigawa to extend that access further.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="why" style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow mono">Why Rent From Us</div>
+      <h2>Fewer breakdowns, shorter waits</h2>
+      <p>We work directly with local farmers and suppliers in Sokoto and Benue, keeping equipment affordable and close to where it's needed.</p>
+    </div>
+  </div>
+  <div class="wrap" style="padding:0;">
+    <div class="why-grid">
+      <div class="why-item">
+        <span class="tag">Inspected</span>
+        <h3>Every unit checked before dispatch</h3>
+        <p>A full mechanical check runs before each rental leaves the depot, engine, hydraulics, tyres, so downtime doesn't land on your harvest.</p>
+      </div>
+      <div class="why-item">
+        <span class="tag">On-site</span>
+        <h3>Delivery to your plot</h3>
+        <p>We haul the equipment to your location and walk you through operation before we leave. No trailer, no problem.</p>
+      </div>
+      <div class="why-item">
+        <span class="tag">Flexible</span>
+        <h3>Day, week, or season terms</h3>
+        <p>Rent for a single planting weekend or lock in a season-long rate. Terms adjust to your planting and harvest calendar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stat"><div class="n">3,400+</div><div class="l">Acres Serviced This Season</div></div>
+    <div class="stat"><div class="n">850</div><div class="l">Farms on Standing Contract</div></div>
+    <div class="stat"><div class="n">15 min</div><div class="l">Avg. Dispatch Call Time</div></div>
+  </div>
+</section>
+
+<section class="section" id="fleet-teaser">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow mono">A Look At The Fleet</div>
+      <h2>Three of our most-requested units</h2>
+      <p>Full specs, rates, and the complete lineup live on the fleet page.</p>
+    </div>
+    <div class="fleet-grid">
+
+      <div class="fleet-card">
+        <div class="fleet-photo"><img src="https://source.unsplash.com/800x600/?tractor,field" alt="Row-crop tractor in a field"></div>
+        <div class="fleet-body">
+          <h3>Row-Crop Tractor</h3>
+          <div class="spec-plate">
+            <div class="k">Power</div><div class="v">75 HP</div>
+            <div class="k">Drive</div><div class="v">4WD</div>
+          </div>
+          <div class="price"><span class="amt">₦45,000</span><span class="per">/ day</span></div>
+        </div>
+      </div>
+
+      <div class="fleet-card">
+        <div class="fleet-photo"><img src="https://source.unsplash.com/800x600/?combine-harvester,farm" alt="Combine harvester working a crop field"></div>
+        <div class="fleet-body">
+          <h3>Combine Harvester</h3>
+          <div class="spec-plate">
+            <div class="k">Power</div><div class="v">210 HP</div>
+            <div class="k">Cutting Width</div><div class="v">4.2m</div>
+          </div>
+          <div class="price"><span class="amt">₦180,000</span><span class="per">/ day</span></div>
+        </div>
+      </div>
+
+      <div class="fleet-card">
+        <div class="fleet-photo"><img src="https://source.unsplash.com/800x600/?tractor,trailer" alt="Tractor hauling a farm trailer"></div>
+        <div class="fleet-body">
+          <h3>Haulage Trailer Rig</h3>
+          <div class="spec-plate">
+            <div class="k">Capacity</div><div class="v">8 Tons</div>
+            <div class="k">Axles</div><div class="v">2</div>
+          </div>
+          <div class="price"><span class="amt">₦30,000</span><span class="per">/ day</span></div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center; margin-top:44px;">
+      <a href="fleet.html" class="btn ghost">See the Full Fleet</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html" class="brand" style="font-size:1rem;"><span class="mark" style="width:26px;height:26px;font-size:0.7rem;">AT</span> AgroTrac</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="mono">© 2026 AgroTrac Equipment Rentals — Placeholder name, swap freely</div>
+  </div>
+</footer>
+
+</body>
+</html>
